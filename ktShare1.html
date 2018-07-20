@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>ktShare</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide" id="TOC">
+<ul class="incremental">
+<li><a href="#kotlin学习经验分享">Kotlin学习经验分享</a><ul class="incremental">
+<li><a href="#henry-hu">Henry Hu</a></li>
+</ul></li>
+<li><a href="#一快速上手">一、快速上手</a></li>
+<li><a href="#二javakotlin混合使用">二、Java、Kotlin混合使用</a></li>
+<li><a href="#三我所了解的kotlin">三、我所了解的Kotlin</a></li>
+<li><a href="#四干货">四、干货</a><ul class="incremental">
+<li><a href="#学习资源">学习资源</a></li>
+<li><a href="#google-sample">Google Sample</a></li>
+</ul></li>
+<li><a href="#五demo">五、Demo</a></li>
+<li><a href="#qa">Q&amp;A</a></li>
+</ul>
+</div>
+<div id="kotlin学习经验分享" class="slide section level1">
+<h1>Kotlin学习经验分享</h1>
+<h2 id="henry-hu">Henry Hu</h2>
+</div>
+<div class="slide section level1">
+
+<h2 id="scalagroovyclojurekotlin解决了java什么痛点">Scala,Groovy,Clojure,Kotlin解决了Java什么痛点?</h2>
+<ul class="incremental">
+<li>Scala: 想解决Java表达能力不足的问题</li>
+<li>Groovy: 想解决Java语法过于冗长的问题</li>
+<li>Clojure: 想解决Java没有函数式编程的问题</li>
+<li>Kotlin: 想解决Java</li>
+</ul>
+</div>
+<div id="一快速上手" class="slide section level1">
+<h1>一、快速上手</h1>
+<p>最新版本 1.2.51</p>
+</div>
+<div class="slide section level1">
+
+<p>1、根目录build.gradle</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb1-1" data-line-number="1">buildscript {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    ext.kotlin_version = <span class="ch">&#39;1.2.51&#39;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    dependencies {</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        classpath <span class="st">&quot;org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version&quot;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    }</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>2、module层build.gradle</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb2-1" data-line-number="1">apply plugin: <span class="ch">&#39;kotlin-android&#39;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">apply plugin: <span class="ch">&#39;kotlin-android-extensions&#39;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">dependencies {</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    implementation <span class="st">&quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version&quot;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">}</a></code></pre></div>
+<p>3、Xxx.kt</p>
+<p>与Java Xxx.java主要区别在于Kotlin的文件名与类名可以不一样</p>
+</div>
+<div class="slide section level1">
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">class</span> GuideKtActivity : <span class="dt">AbsActivity</span>() {</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">    <span class="kw">private</span> <span class="kw">var</span> <span class="va">mSubscriptions</span>: CompositeSubscription? = <span class="kw">null</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">    init {</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">        mSubscriptions = CompositeSubscription()</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">    }</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">initView</span>() {</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">        <span class="kw">val</span> <span class="va">launchTime</span> = LaunchTimeUtil.getTimeCalculate(LaunchTimeUtil.SPLASH_LAUNCH_NEXT)</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">        TLog.i(TAG, <span class="st">&quot;SPLASH_LAUNCH_NEXT success, need [%s] ms&quot;</span>, launchTime)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">        <span class="cf">if</span> (launchTime != -1L) {</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">            bbase.usage().record(</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">                UserDataCollect.PREFIX_UI + UserDataCollect.SPLASH_LAUNCH_GUIDE,</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">                launchTime)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">        }</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">        <span class="kw">super</span>.initView()</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">        setContentView(R.layout.layout_guide_activity)</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">                WindowManager.LayoutParams.FLAG_FULLSCREEN)</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">        close_btn.setOnClickListener { showPermissionRequest() }</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">    }</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">    <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">onDestroy</span>() {</a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">        <span class="kw">super</span>.onDestroy()</a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">        mSubscriptions?.clear()</a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">    }</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">    <span class="kw">private</span> <span class="kw">fun</span> <span class="fu">showPermissionRequest</span>() {}</a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">    </a>
+<a class="sourceLine" id="cb3-30" data-line-number="30">    <span class="kw">private</span> <span class="kw">fun</span> <span class="fu">launchNext</span>(): <span class="dt">Unit</span> {}</a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">    </a>
+<a class="sourceLine" id="cb3-32" data-line-number="32">    <span class="kw">private</span> <span class="kw">fun</span> <span class="fu">buildIndicatorView</span>(<span class="va">selected</span>: <span class="dt">Boolean</span>) = View(baseContext)</a>
+<a class="sourceLine" id="cb3-33" data-line-number="33">    </a>
+<a class="sourceLine" id="cb3-34" data-line-number="34">    <span class="kw">companion</span> <span class="kw">object</span> {</a>
+<a class="sourceLine" id="cb3-35" data-line-number="35">        <span class="kw">private</span> <span class="kw">val</span> <span class="va">TAG</span> = GuideKtActivity::<span class="kw">class</span>.java.</a>
+<a class="sourceLine" id="cb3-36" data-line-number="36">//        <span class="kw">private</span> const <span class="kw">val</span> TAG = &quot;GuideKtActivity&quot;</a>
+<a class="sourceLine" id="cb3-37" data-line-number="37">    }</a>
+<a class="sourceLine" id="cb3-38" data-line-number="38">}</a></code></pre></div>
+</div>
+<div id="二javakotlin混合使用" class="slide section level1">
+<h1>二、Java、Kotlin混合使用</h1>
+</div>
+<div class="slide section level1">
+
+<h2 id="kotlin调java">1、Kotlin调Java</h2>
+<p>基本丝滑过渡</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">val</span> <span class="va">list</span> = ArrayList&lt;<span class="kw">Int</span>&gt;()</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">VoipDb.getInstance(baseContext).`is`()</a></code></pre></div>
+<p><a href="#(28)">jump code</a></p>
+<p>But:</p>
+<p>T! means “T or T?” IDE检测不出</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">val</span> <span class="va">javaClass</span> : Class&lt;GuideActivity&gt; = GuideActivity::<span class="kw">class</span>.java</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="java调kotlin">2、Java调Kotlin</h2>
+<p>稍微麻烦, 不够优雅</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb6-1" data-line-number="1">CooTekUser user = <span class="kw">new</span> <span class="fu">CooTekUser</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;+27&quot;</span>, <span class="st">&quot;13212345678&quot;</span>, <span class="st">&quot;1234&quot;</span>);</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">user.<span class="fu">login</span>();</a></code></pre></div>
+<p><a href="#(20)">jump code</a></p>
+<p>But:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb7-1" data-line-number="1">VoipDb db = VoipDb.<span class="fu">Companion</span>.<span class="fu">getInstances</span>();</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">ViewExtKt.<span class="fu">verticalRoundTranslate</span>(...);</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">KClass&lt;GuideKtActivity&gt; kClass = kotlin.<span class="fu">jvm</span>.<span class="fu">JvmClassMappingKt</span>.<span class="fu">getKotlinClass</span>(GuideKtActivity.<span class="fu">class</span>);</a></code></pre></div>
+</div>
+<div id="三我所了解的kotlin" class="slide section level1">
+<h1>三、我所了解的Kotlin</h1>
+</div>
+<div class="slide section level1">
+
+<h2 id="与与">1、?.与!!与?:</h2>
+<p>只是编译时空“安全”。特别在与Java混合使用时, IDE检测不出空指针隐患</p>
+<p>反思:</p>
+<ul class="incremental">
+<li>写Kotlin时, 什么时候需要Nullable(?)</li>
+<li>写Java时，特别是sdk，多留意注解@Nullable, <span class="citation">@NonNull</span></li>
+</ul>
+</div>
+<div class="slide section level1">
+
+<p>举个AhaCall的例子</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co">//getKeyString Java源码中缺少注解@Nullable，IDE检测不出, 运行可能出现空指针</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">val</span> <span class="va">number1</span> = PrefUtil.getKeyString(PrefKeys.TOUCHPAL_PHONENUMBER_ACCOUNT).trim()</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">val</span> <span class="va">number2</span> = PrefUtil.getKeyString(PrefKeys.TOUCHPAL_PHONENUMBER_ACCOUNT)?.trim()</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="kw">val</span> <span class="va">number3</span> = PrefUtil.getKeyString(PrefKeys.TOUCHPAL_PHONENUMBER_ACCOUNT).trim() ?: <span class="st">&quot;&quot;</span></a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>小心IDE自动转码, 常出现!!</p>
+<p>!!少用, 空指针定时炸弹</p>
+<p>举个AhaCall的例子</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb9-1" data-line-number="1">refreshFBUserInfo(mFBUser!!)</a></code></pre></div>
+<p>使用高阶函数let</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb10-1" data-line-number="1">mFBUser?.let { refreshFBUserInfo(it) }</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="尴尬的三目运算">2、尴尬的三目运算</h2>
+<p>Java:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="dt">int</span> max = (a &gt;= b) ? a : b</a></code></pre></div>
+<p>Kotlin:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">val</span> <span class="va">max</span> = <span class="cf">if</span> (a &gt; b) a <span class="cf">else</span> b</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="when-加强版的switch">3、when, 加强版的switch</h2>
+<ul class="incremental">
+<li>switch的基本功能</li>
+<li>分支支持in、is的判断</li>
+<li>可以没有自变量</li>
+</ul>
+</div>
+<div class="slide section level1">
+
+<div class="sourceCode" id="cb13"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="cf">when</span> {</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">    <span class="st">&quot;apple&quot;</span> <span class="kw">in</span> items -&gt; println(<span class="st">&quot;found apple&quot;</span>)</a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">    str <span class="kw">is</span> <span class="kw">String</span> -&gt; println(<span class="st">&quot;is String: $str&quot;</span>)</a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">    <span class="cf">else</span> -&gt; <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">}</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">override</span> <span class="kw">fun</span> <span class="fu">onCreateViewHolder</span>(<span class="va">parent</span>: <span class="dt">ViewGroup</span>, <span class="va">viewType</span>: <span class="dt">Int</span>): <span class="dt">RecyclerView</span>.<span class="fu">ViewHolder</span> =</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">        <span class="cf">when</span> (viewType) {</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">            R.layout.item_catagory_card -&gt; CategoryCardViewHolder.create(parent, onLike)</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">            R.layout.item_network_state -&gt; NetworkStateItemViewHolder.create(parent, retryCallback)</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">            <span class="cf">else</span> -&gt; <span class="kw">throw</span> IllegalArgumentException(<span class="st">&quot;unknown view type $viewType&quot;</span>)</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">        }</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="val与var">4、val与var</h2>
+<table>
+<thead>
+<tr class="header">
+<th>只读</th>
+<th>可读写</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>val</td>
+<td>var (java 10支持var)</td>
+</tr>
+<tr class="even">
+<td>List</td>
+<td>MutableList</td>
+</tr>
+<tr class="odd">
+<td>Set</td>
+<td>MutableSet</td>
+</tr>
+<tr class="even">
+<td>Map</td>
+<td>MutableMap</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="slide section level1">
+
+<h2 id="类函数">5、类、函数</h2>
+<ul class="incremental">
+<li>增加data数据类, 告别set, get, equals, hashCode, toString</li>
+<li>默认都是final、public, 不可继承, 继承需给父类加open</li>
+<li>函数终于支持缺省值了, 并且函数可以与package同级</li>
+</ul>
+</div>
+<div class="slide section level1">
+
+<p>举个AhaCall的例子, data关键字</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">data</span> <span class="kw">class</span> CooTekUser(</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">        <span class="kw">val</span> <span class="va">id</span>: <span class="dt">String</span>, //只读, <span class="kw">get</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">        <span class="kw">var</span> <span class="va">countryCode</span>: <span class="dt">String</span> = <span class="st">&quot;+86&quot;</span>,</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">        <span class="kw">var</span> <span class="va">pureNumber</span>: <span class="dt">String</span> = <span class="st">&quot;13212345678&quot;</span>,</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">        <span class="kw">var</span> <span class="va">code</span>: <span class="dt">String</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">){</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">    <span class="kw">fun</span> <span class="fu">login</span>() {}</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>缺省值</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">public</span> <span class="dt">void</span> <span class="fu">share</span>(<span class="dt">final</span> <span class="bu">Context</span> context, <span class="dt">int</span> style, <span class="bu">String</span> title, <span class="bu">String</span> subject, <span class="bu">String</span> content, Uri streamUri, <span class="bu">String</span> url, <span class="bu">String</span> imgUrl, <span class="bu">String</span> from){</a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">    <span class="co">//...</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">share</span>(<span class="va">context</span>: <span class="dt">Context</span>, <span class="va">style</span>: <span class="dt">Int</span> = 0, <span class="va">title</span>: <span class="dt">String</span> = <span class="st">&quot;&quot;</span>, <span class="va">subject</span>: <span class="dt">String</span> = <span class="st">&quot;&quot;</span>, <span class="va">content</span>: <span class="dt">String</span>, <span class="va">streamUri</span>: <span class="dt">Uri</span>, <span class="va">url</span>: <span class="dt">String</span> = <span class="st">&quot;&quot;</span>, <span class="va">imgUrl</span>: <span class="dt">String</span> = <span class="st">&quot;&quot;</span>, <span class="va">from</span>: <span class="dt">String</span>){</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">    <span class="co">//...</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">}</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="kw">fun</span> <span class="fu">testShare</span>() {</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">    share(context = bbase.app(), content = <span class="st">&quot;link&quot;</span>, streamUri = <span class="st">&quot;https://www.baidu.com&quot;</span>.toUri(), from = <span class="st">&quot;test&quot;</span>)</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>继承</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">open</span> <span class="kw">class</span> A</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="kw">class</span> B : <span class="dt">A</span>()</a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="kw">fun</span> <span class="fu">a</span>() {}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="扩展">6、扩展</h2>
+<p>ViewExt.kt</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">View</span>.<span class="fu">verticalRoundTranslate</span>(<span class="va">delta</span>: <span class="dt">Float</span>, <span class="va">duration</span>: <span class="dt">Long</span>, <span class="va">repeatCount</span>: <span class="dt">Int</span>){</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">    <span class="kw">val</span> <span class="va">translateAnim</span> = TranslateAnimation(0f, 0f, 0f, -delta)</a>
+<a class="sourceLine" id="cb19-3" data-line-number="3">    translateAnim.duration = duration</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">    translateAnim.repeatMode = Animation.REVERSE</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">    translateAnim.repeatCount = repeatCount</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">    <span class="kw">val</span> <span class="va">animationSet</span> = AnimationSet(<span class="kw">false</span>)</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">    animationSet.addAnimation(translateAnim)</a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">    startAnimation(animationSet)</a>
+<a class="sourceLine" id="cb19-9" data-line-number="9">}</a></code></pre></div>
+<p>Kotlin:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb20-1" data-line-number="1">    fab.verticalRoundTranslate(100f, <span class="dv">250</span>, Animation.INFINITE)</a></code></pre></div>
+<p>But: Java中调Kotlin</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb21-1" data-line-number="1">    ViewExtKt.<span class="fu">verticalRoundTranslate</span>(mDeliveryTabPop, 100f, <span class="dv">250</span>, Animation.<span class="fu">INFINITE</span>);</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>Android KTX: androidx.core:core-ktx:1.0.0-alpha1</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb22-1" data-line-number="1">view.viewTreeObserver.addOnPreDrawListener(</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">    <span class="kw">object</span> : <span class="dt">ViewTreeObserver</span>.<span class="dt">OnPreDrawListener</span> {</a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">        <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">onPreDraw</span>(): <span class="dt">Boolean</span> {</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">            viewTreeObserver.removeOnPreDrawListener(<span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb22-5" data-line-number="5">            actionToBeTriggered()</a>
+<a class="sourceLine" id="cb22-6" data-line-number="6">            <span class="kw">return</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb22-7" data-line-number="7">        }</a>
+<a class="sourceLine" id="cb22-8" data-line-number="8">    })</a>
+<a class="sourceLine" id="cb22-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co">//KTX</span></a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">view.doOnPreDraw {</a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">     actionToBeTriggered()</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="lambda-去除大量模板化代码">7、Lambda, 去除大量模板化代码</h2>
+<p>Java:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">new</span> <span class="bu">Thread</span>(<span class="kw">new</span> <span class="bu">Runnable</span>() {</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">run</span>() {</a>
+<a class="sourceLine" id="cb23-4" data-line-number="4">        Log.<span class="fu">d</span>(TAG,<span class="st">&quot;do something&quot;</span>);</a>
+<a class="sourceLine" id="cb23-5" data-line-number="5">    }</a>
+<a class="sourceLine" id="cb23-6" data-line-number="6">}).<span class="fu">start</span>();</a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="co">//java8</span></a>
+<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="kw">new</span> <span class="bu">Thread</span>(() -&gt; Log.<span class="fu">d</span>(TAG, <span class="st">&quot;do something&quot;</span>)).<span class="fu">start</span>();</a></code></pre></div>
+<p>Kotlin:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb24-1" data-line-number="1">Thread(Runnable { Log.d(TAG, <span class="st">&quot;do something&quot;</span>) }).start()</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">Thread({ Log.d(TAG, <span class="st">&quot;do something&quot;</span>) }).start()</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">Thread() { Log.d(TAG, <span class="st">&quot;do something&quot;</span>) }.start()</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">Thread { Log.d(TAG, <span class="st">&quot;do something&quot;</span>) }.start()</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>带接受者的函数类型</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co">//Int.(Int) -&gt; Int, 带接受者的函数类型</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">val</span> <span class="va">sum</span>: <span class="kw">Int</span>.(<span class="kw">Int</span>) -&gt; <span class="kw">Int</span> = { other -&gt; <span class="kw">this</span> + other }</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw">fun</span> <span class="fu">testSum</span>() {</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">    println(<span class="st">&quot;1.sum(2)=${1.sum(2)}&quot;</span>)</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="大量的高阶函数">8、大量的高阶函数</h2>
+<p>let, invoke, with, apply, also, map, filter, reduce…</p>
+<p>Java:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">if</span> (callback != <span class="kw">null</span>) {</a>
+<a class="sourceLine" id="cb26-2" data-line-number="2">    callback.<span class="fu">onStatus</span>(NetworkState.<span class="fu">LOADING</span>);</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">}</a></code></pre></div>
+<p>Kotlin:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">val</span> <span class="va">onStatus</span>: ((NetworkState) -&gt; <span class="kw">Unit</span>)? = <span class="kw">null</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">onStatus?.invoke(NetworkState.LOADING)</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="单例object-委托by">9、单例object, 委托by</h2>
+<p>实现饿汉式只需要</p>
+<p>object MyClass</p>
+<p>举个AhaCall的例子</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">object</span> VoipDbHelper : <span class="dt">SQLiteOpenHelper</span>(<span class="va">bbase</span>.<span class="va">app</span>(), <span class="dt">DATABASE_NAME</span>, <span class="dt">null</span>, <span class="dt">DATABASE_VERSION</span>) {</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">    <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">onCreate</span>(<span class="va">db</span>: <span class="dt">SQLiteDatabase?</span>) {}</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb28-4" data-line-number="4">    <span class="kw">override</span> <span class="kw">fun</span> <span class="fu">onUpgrade</span>(<span class="va">db</span>: <span class="dt">SQLiteDatabase?</span>, <span class="va">oldVersion</span>: <span class="dt">Int</span>, <span class="va">newVersion</span>: <span class="dt">Int</span>) {}</a>
+<a class="sourceLine" id="cb28-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb28-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb28-7" data-line-number="7"><span class="kw">class</span> VoipDb {</a>
+<a class="sourceLine" id="cb28-8" data-line-number="8">    <span class="kw">companion</span> <span class="kw">object</span> {</a>
+<a class="sourceLine" id="cb28-9" data-line-number="9">        <span class="co">//饿汉式</span></a>
+<a class="sourceLine" id="cb28-10" data-line-number="10">        <span class="kw">fun</span> <span class="fu">getInstance</span>() = VoipDb()</a>
+<a class="sourceLine" id="cb28-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb28-12" data-line-number="12">        <span class="co">//双重校验锁式, by委托,lazy延迟加载,线程安全</span></a>
+<a class="sourceLine" id="cb28-13" data-line-number="13">        <span class="kw">val</span> <span class="va">instances</span> <span class="kw">by</span> lazy { VoipDb() }</a>
+<a class="sourceLine" id="cb28-14" data-line-number="14">    }</a>
+<a class="sourceLine" id="cb28-15" data-line-number="15">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>But: Java中调Kotlin</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb29-1" data-line-number="1">VoipDbHelper.<span class="fu">INSTANCE</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3">VoipDb.<span class="fu">Companion</span>.<span class="fu">getInstances</span>()</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="kotlin-android-extensions-gradle插件">10、Kotlin Android Extensions, Gradle插件</h2>
+<p>告别findViewById</p>
+<p>并具有View cache</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb30-1" data-line-number="1">id.setOnClickListener{ <span class="co">//... }</span></a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>Parcelable注解(实验性功能)</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="at">@Parcelize</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="kw">data</span> <span class="kw">class</span> CooTekUser(</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">        <span class="kw">val</span> <span class="va">id</span>: <span class="dt">String</span>, //只读, <span class="kw">get</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">        <span class="kw">var</span> <span class="va">countryCode</span>: <span class="dt">String</span> = <span class="st">&quot;+86&quot;</span>,</a>
+<a class="sourceLine" id="cb31-5" data-line-number="5">        <span class="kw">var</span> <span class="va">pureNumber</span>: <span class="dt">String</span> = <span class="st">&quot;13212345678&quot;</span>,</a>
+<a class="sourceLine" id="cb31-6" data-line-number="6">        <span class="kw">var</span> <span class="va">code</span>: <span class="dt">String</span></a>
+<a class="sourceLine" id="cb31-7" data-line-number="7">) : <span class="dt">Parcelable</span></a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<h2 id="强大的dsl">11、强大的DSL</h2>
+<p>DSL(Domain-Specific Language, 领域特定语言)指的是专注于特定问题领域的计算机语言(领域专用语言). 不同于通用的计算机语言(GPL), 领域特定语言只用在某些特定的领域.</p>
+<p>Gradle</p>
+<p>build.gradle</p>
+<p><img src="./dsl_gradle.png" /></p>
+</div>
+<div class="slide section level1">
+
+<p><a href="https://try.kotlinlang.org/#/Examples/Longer%20examples/HTML%20Builder/HTML%20Builder.kt">经典例子</a></p>
+<p>利用嵌套闭包、扩展、函数接受者、操作符重载特性</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">fun</span> <span class="fu">main</span>(<span class="va">args</span>: <span class="dt">Array</span>&lt;<span class="va">String</span>&gt;) {</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">    <span class="kw">val</span> <span class="va">result</span> =</a>
+<a class="sourceLine" id="cb32-3" data-line-number="3">            html {</a>
+<a class="sourceLine" id="cb32-4" data-line-number="4">                head {</a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">                    title { +<span class="st">&quot;HTML encoding with Kotlin&quot;</span> }</a>
+<a class="sourceLine" id="cb32-6" data-line-number="6">                }</a>
+<a class="sourceLine" id="cb32-7" data-line-number="7">                body {</a>
+<a class="sourceLine" id="cb32-8" data-line-number="8">                    h1 { +<span class="st">&quot;HTML encoding with Kotlin&quot;</span> }</a>
+<a class="sourceLine" id="cb32-9" data-line-number="9">                    p { +<span class="st">&quot;this format can be used as an alternative markup to HTML&quot;</span> }</a>
+<a class="sourceLine" id="cb32-10" data-line-number="10">                }</a>
+<a class="sourceLine" id="cb32-11" data-line-number="11">            }</a>
+<a class="sourceLine" id="cb32-12" data-line-number="12">    println(result)</a>
+<a class="sourceLine" id="cb32-13" data-line-number="13">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>Anko, 使用代码生成UI布局</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb33-1" data-line-number="1">verticalLayout {</a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">    <span class="kw">val</span> <span class="va">name</span> = editText()</a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">    button(<span class="st">&quot;Say Hello&quot;</span>) {</a>
+<a class="sourceLine" id="cb33-4" data-line-number="4">        onClick { toast(<span class="st">&quot;Hello, ${name.text}!&quot;</span>) }</a>
+<a class="sourceLine" id="cb33-5" data-line-number="5">    }</a>
+<a class="sourceLine" id="cb33-6" data-line-number="6">}</a></code></pre></div>
+</div>
+<div class="slide section level1">
+
+<p>Kolley, 封装Volley</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode kotlin"><code class="sourceCode kotlin"><a class="sourceLine" id="cb34-1" data-line-number="1">Http.<span class="kw">get</span> {</a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">    url = <span class="st">&quot;http://api.openweathermap.org/data/2.5/weather&quot;</span></a>
+<a class="sourceLine" id="cb34-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">    params {</a>
+<a class="sourceLine" id="cb34-5" data-line-number="5">        <span class="st">&quot;q&quot;</span> - <span class="st">&quot;shanghai&quot;</span></a>
+<a class="sourceLine" id="cb34-6" data-line-number="6">        <span class="st">&quot;appid&quot;</span> - <span class="st">&quot;d7a98cf22463b1c0c3df4adfe5abbc77&quot;</span></a>
+<a class="sourceLine" id="cb34-7" data-line-number="7">    }</a>
+<a class="sourceLine" id="cb34-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb34-9" data-line-number="9">    onStart { log(<span class="st">&quot;on start&quot;</span>) }</a>
+<a class="sourceLine" id="cb34-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb34-11" data-line-number="11">    onSuccess { bytes -&gt;</a>
+<a class="sourceLine" id="cb34-12" data-line-number="12">        log(<span class="st">&quot;on success ${bytes.toString(Charset.defaultCharset())}&quot;</span>)</a>
+<a class="sourceLine" id="cb34-13" data-line-number="13">    }</a>
+<a class="sourceLine" id="cb34-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb34-15" data-line-number="15">    onFail { error -&gt;</a>
+<a class="sourceLine" id="cb34-16" data-line-number="16">        log(<span class="st">&quot;on fail ${error.toString()}&quot;</span>)</a>
+<a class="sourceLine" id="cb34-17" data-line-number="17">    }</a>
+<a class="sourceLine" id="cb34-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb34-19" data-line-number="19">    onFinish { log( <span class="st">&quot;on finish&quot;</span>) }</a>
+<a class="sourceLine" id="cb34-20" data-line-number="20">}</a></code></pre></div>
+</div>
+<div id="四干货" class="slide section level1">
+<h1>四、干货</h1>
+<h2 id="学习资源">学习资源</h2>
+<p><em><a href="https://www.jianshu.com/c/ce44081f781f">KotlinThree</a></em></p>
+<p><em><a href="https://www.kotliner.cn">kotliner.cn</a></em></p>
+<p><em><a href="https://kymjs.com/column/kotlin.html">张涛开源实验室Kotlin</a></em></p>
+<h2 id="google-sample">Google Sample</h2>
+<p><em><a href="https://github.com/googlesamples/android-topeka">android-topeka</a></em></p>
+<p><em><a href="https://github.com/googlesamples/android-architecture-components">android-architecture-components</a></em></p>
+</div>
+<div id="五demo" class="slide section level1">
+<h1>五、Demo</h1>
+<p>paging-rxjava2</p>
+<p>kotlin</p>
+<div class="figure">
+<img src="./jetpack.png" alt="Jetpack" />
+<p class="caption">Jetpack</p>
+</div>
+<p><a href="https://developer.android.google.cn/topic/libraries/architecture/paging">paging</a></p>
+<p><a href="https://codelabs.developers.google.com/codelabs/android-paging/index.html#9">intro</a></p>
+</div>
+<div id="qa" class="slide section level1">
+<h1>Q&amp;A</h1>
+<p>Thanks</p>
+</div>
+</body>
+</html>
